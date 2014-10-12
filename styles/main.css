@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Pirate';
+  src: url('fonts/Treamd.ttf') format('truetype');
+}
+
+html, body {
+  background: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  min-width: 960px;
+  width: 960px;
+  text-align: center;
+  margin: 30px auto;
+  background-color: white;
+}
+
+/*================================================*/
+/* Choices */
+
+textarea {
+  width: 310px;
+  height: 100px;
+}
+
+.translations > div {
+  display: inline-block;
+  text-align: center;
+  width: 350px;
+  height: 320px;
+  margin: 20px;
+  padding: 30px;
+}
+
+.translations img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.translations h1 {
+  font-size: 30px;
+  font-family: 'Pirate';
+  /*margin: 0 auto;*/
+  padding: 10px;
+}
+
+.translations p {
+  width: 270px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.pirate {
+  background-color: black;
+  color: white;
+}
+
+.pirate h1 {
+  font-family: 'Pirate';
+}
+
+.pirate p {
+  border-top: 1px solid white;
+}
+
+.yoda {
+  background-color: lightgreen;
+  color: black;
+}
+
+.yoda p {
+  border-top: 1px solid black;
+}
