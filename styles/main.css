@@ -9,6 +9,22 @@ html, body {
   padding: 0;
 }
 
+/*================================================*/
+/* Banner */
+
+#banner {
+  width: 100%;
+  height: 120px;
+}
+
+#banner img {
+  width: 100%;
+  height: 120px;
+}
+
+/*================================================*/
+/* Content */
+
 .content {
   min-width: 960px;
   width: 960px;
@@ -17,60 +33,110 @@ html, body {
   background-color: white;
 }
 
-/*================================================*/
-/* Choices */
+.main {
+  margin-top: 30px;
+}
 
 textarea {
   width: 310px;
-  height: 100px;
+  height: 70px;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+/*================================================*/
+/* Source */
+
+.source {
+  float: left;
+  width: 430px;
+  margin-left: 20px;
+}
+
+.source h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.source p {
+  width: 310px;
+  margin: 10px auto;
+}
+
+.source textarea {
+  margin-top: 20px;
+}
+
+.source button {
+  display: block;
+  border-radius: 7px;
+  background-image: linear-gradient(rgb(255,244,165), #F0BB6D);
+  -webkit-box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.45), 0 2px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.45), 0 2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.45), 0 2px 2px rgba(0, 0, 0, 0.25);
+  margin: 5px auto 40px auto;
+  width: 330px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.source button:focus {
+  outline: none;
+}
+
+.source button:active {
+  position: relative; top: 3px;
+  -webkit-box-shadow: inset 0 -3px 1px rgba(255, 255, 255, 1), inset 0 0 3px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: inset 0 -3px 1px rgba(255, 255, 255, 1), inset 0 0 3px rgba(0, 0, 0, 0.9);
+  box-shadow: inset 0 -3px 1px rgba(255, 255, 255, 1), inset 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.source button:active:after { content: ""; width: 100%; height: 3px; background: #fff; position: absolute; bottom: -1px; left: 0; }
+
+.source button:hover {
+  outline: none;
+}
+
+/*================================================*/
+/* Translations */
+
+.translations {
+  float: right;
+  width: 480px;
+  margin-right: 20px;
 }
 
 .translations > div {
   display: inline-block;
-  text-align: center;
-  width: 350px;
-  height: 320px;
-  margin: 20px;
-  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.translations .avatar {
+  float: left;
+  width: 120px;
 }
 
 .translations img {
+  border: 1px solid black;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 92px;
+  height: 92px;
 }
 
 .translations h1 {
   font-size: 30px;
-  font-family: 'Pirate';
-  /*margin: 0 auto;*/
+  display: none;
+}
+
+.translations textarea {
+  float: right;
   padding: 10px;
 }
 
-.translations p {
-  width: 270px;
-  margin: 10px auto;
-  padding: 10px;
-}
+/*===============================================*/
+/* Suggestions */
 
-.pirate {
-  background-color: black;
-  color: white;
-}
-
-.pirate h1 {
-  font-family: 'Pirate';
-}
-
-.pirate p {
-  border-top: 1px solid white;
-}
-
-.yoda {
-  background-color: lightgreen;
-  color: black;
-}
-
-.yoda p {
-  border-top: 1px solid black;
+.suggestions {
+  clear: both;
 }
