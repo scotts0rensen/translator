@@ -1,93 +1,61 @@
 // =================================
+// Array of all translators
+var translators = [
+  new Translator("pirate", "Type somethin' first ye scurvy dog!"),
+  new Translator("yoda", "Empty the input box is, hhhhmmmmmm?  Empty leads to the dark side."),
+  new Translator("piglatin", "Oink!  Oink!"),
+  new Translator("dug", "Please type something in the input box, Master.  I do not like the cone of shame.")
+];
+
+// =================================
 // document ready (events for buttons)
 $(document).ready( function() {
   $(".source button").click( translateHandler );
 });
 
+// =================================
+// on translate button click
 var translateHandler = function() {
   $(".translations textarea").val("Translating...");
-
   var english = $(".source textarea").val();
 
-  translatePirate(english);
-  translateYoda(english);
-  translatePigLatin(english);
-  translateDug(english);
+  for (var i = 0; i < translators.length; i++) {
+    translators[i].translate(english);
+  }
 };
 
-var translatePirate = function(english) {
-  if (!english)
-    $(".pirate textarea").val("Type somethin' first ye scurvy dog!");
-  else
-    $.ajax({
-        type: "GET",
-        url: "http://pirate-api.herokuapp.com/translation",
-        data: {english: english},
-        dataType: "jsonp",
-      })
-      .done( function (result) {
-        $(".pirate textarea").val(result['pirate']);
-      })
-      .fail( function(jqXHR, error, errorThrown) {
-        $(".pirate textarea").val( error );
-        console.log( error );
-      });
+// =================================
+// Translator class
+function Translator(language, missingText ) {
+  this.language = language;
+  this.missingText = missingText;
+
+  this.translate = function(english) {
+    var language = this.language;
+    if (!english)
+      $("." + language + " textarea").val(this.missingText);
+    else
+      $.ajax({
+          type: "GET",
+          url: "http://pirate-api.herokuapp.com/translation",
+          data: {english: english, language: language},
+          dataType: "jsonp",
+        })
+        .done( function(result) {
+          setTranslationSuccess(result, language);
+        })
+        .fail( function(jqXHR, error, errorThrown) {
+          setTranslationError(jqXHR, error, errorThrown, language);
+        });
+  };
+}
+
+var setTranslationSuccess = function(result, language) {
+  $("." + language + " textarea").val(result[language]);
 };
 
-var translateYoda = function(english) {
-  if (!english)
-    $(".yoda textarea").val("Empty the input box is, hhhhmmmmmm?  Empty leads to the dark side.");
-  else
-    $.ajax({
-        type: "GET",
-        url: "http://pirate-api.herokuapp.com/translation",
-        data: {english: english, language: "yoda"},
-        dataType: "jsonp",
-      })
-      .done( function (result) {
-        $(".yoda textarea").val(result['yoda']);
-      })
-      .fail( function(jqXHR, error, errorThrown) {
-        $(".yoda textarea").val( error );
-        console.log( error );
-      });
-};
-
-var translatePigLatin = function(english) {
-  if (!english)
-    $(".piglatin textarea").val("Oink!  Oink!");
-  else
-    $.ajax({
-        type: "GET",
-        url: "http://pirate-api.herokuapp.com/translation",
-        data: {english: english, language: "piglatin"},
-        dataType: "jsonp",
-      })
-      .done( function (result) {
-        $(".piglatin textarea").val(result['piglatin']);
-      })
-      .fail( function(jqXHR, error, errorThrown) {
-        $(".piglatin textarea").val( error );
-        console.log( error );
-      });
-};
-
-var translateDug = function(english) {
-  if (!english)
-    $(".dug textarea").val("Please type something in the input box, Master.  I do not like the cone of shame.");
-  else
-    $.ajax({
-        type: "GET",
-        url: "http://pirate-api.herokuapp.com/translation",
-        data: {english: english, language: "dug"},
-        dataType: "jsonp",
-      })
-      .done( function (result) {
-        $(".dug textarea").val(result['dug']);
-      })
-      .fail( function(jqXHR, error, errorThrown) {
-        $(".dug textarea").val( error );
-        console.log( error );
-      });
+var setTranslationError = function(jqXHR, error, errorThrown, language) {
+  $("." + language + " textarea").val( error );
+  console.log( error );
 };
 
