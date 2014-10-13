@@ -36,17 +36,16 @@ var translatePirate = function(english) {
 
 var translateYoda = function(english) {
   if (!english)
-    $(".yoda textarea").val("Empty the input box is, hhhhmmmmmm?");
+    $(".yoda textarea").val("Empty the input box is, hhhhmmmmmm?  Empty leads to the dark side.");
   else
     $.ajax({
-        type: 'GET',
-        url: "https://yoda.p.mashape.com/yoda?sentence=" + encodeURIComponent(english),
-        headers: {
-          "X-Mashape-Key": "54ORZskqN7mshyPkZ34Ia0FuJclvp1voVMfjsn9IZRPpUNA3UI"
-        }
+        type: "GET",
+        url: "http://pirate-api.herokuapp.com/translation",
+        data: {english: english, language: "yoda"},
+        dataType: "jsonp",
       })
       .done( function (result) {
-        $(".yoda textarea").val(result);
+        $(".yoda textarea").val(result['yoda']);
       })
       .fail( function(jqXHR, error, errorThrown) {
         $(".yoda textarea").val( error );
@@ -73,10 +72,9 @@ var translatePigLatin = function(english) {
       });
 };
 
-
 var translateDug = function(english) {
   if (!english)
-    $(".dug textarea").val("I do not like the cone of shame. Please type something in the input box.");
+    $(".dug textarea").val("Please type something in the input box, Master.  I do not like the cone of shame.");
   else
     $.ajax({
         type: "GET",
