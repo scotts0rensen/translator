@@ -208,16 +208,17 @@ footer span:last-child {
   background-color: gray;
   color: white;
   border: 1px solid black;
-  padding: 10px;
+  height: 30px;
+  padding: 20px 20px 10px 20px;
   font-size: 20px;
 }
 
 .ui-dialog-titlebar button {
   float: right;
-  padding: 7px;
-  border-radius: 3px;
-  background-color: orange;
-  color: white;
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-image: linear-gradient(rgb(255,244,165), #F0BB6D);
+  cursor: pointer;
 }
 
 .dialogs ul {
