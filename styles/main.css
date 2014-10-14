@@ -149,7 +149,7 @@ textarea {
 
 /*===============================================*/
 /* Footer */
-.footer {
+footer {
   clear: both;
   width: 100%;
   height: 37px;
@@ -158,12 +158,36 @@ textarea {
   background-color: rgb(255,150,53);
 }
 
-.footer span:first-child {
+footer span:first-child {
   float: left;
   padding-left: 30px;
 }
 
-.footer span:last-child {
+footer span:last-child {
   float: right;
   padding-right: 30px;
+}
+
+/*===============================================*/
+/* Credits dialog */
+#credits-dialog {
+  display: none;
+  padding: 20px;
+}
+
+#credits-dialog .ui-dialog {
+  background-color: white;
+  border: 1px solid black;
+}
+
+#credits-dialog .ui-dialog-titlebar {
+  background-color: gray;
+  color: white;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#credits-dialog h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
 }

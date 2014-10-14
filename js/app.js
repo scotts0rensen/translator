@@ -10,11 +10,25 @@ var translators = [
 // =================================
 // document ready (events for buttons)
 $(document).ready( function() {
+  $( "#credits-dialog" ).dialog({
+      width: 560,
+      autoOpen: false,
+      show: {
+        effect: "drop",
+        duration: 250
+      },
+      hide: {
+        effect: "explode",
+        duration: 500
+      }
+    });
+
   $(".source button").click( translateHandler );
+  $("#credits-link").click( creditsHandler );
 });
 
 // =================================
-// on translate button click
+// translate button click handler
 var translateHandler = function() {
   $(".translations textarea").val("Translating...");
   var english = $(".source textarea").val();
@@ -23,6 +37,14 @@ var translateHandler = function() {
     translators[i].translate(english);
   }
 };
+
+// =================================
+// credits link click handler
+var creditsHandler = function(e) {
+  e.preventDefault();
+  $("#credits-dialog").dialog("open");
+};
+
 
 // =================================
 // Translator class
