@@ -57,38 +57,7 @@ var quotes = {
 // =================================
 // document ready (events for buttons)
 $(document).ready( function() {
-  $( "#credits-dialog" ).dialog({
-      width: 700,
-      height: 500,
-      modal: true,
-      resizable: true,
-      dialogClass: '.dialog-styles',
-      autoOpen: false,
-      show: {
-        effect: "drop",
-        duration: 250
-      },
-      hide: {
-        effect: "explode",
-        duration: 500
-      }
-    });
-
-  $( "#yoda-dialog" ).dialog({
-      width: 700,
-      height: 500,
-      modal: true,
-      resizable: true,
-      autoOpen: false,
-      show: {
-        effect: "drop",
-        duration: 250
-      },
-      hide: {
-        effect: "explode",
-        duration: 500
-      }
-    });
+  initalizeDialogs();
 
   $(".source .clear").click( clearHandler );
   $(".source .translate").click( translateHandler );
@@ -199,4 +168,29 @@ var setTranslationError = function(jqXHR, error, errorThrown, language) {
   $("." + language + " textarea").val( error );
   console.log( error );
 };
+
+var initalizeDialogs = function() {
+  initalizeDialog($( "#credits-dialog" ));
+  initalizeDialog($( "#yoda-dialog" ));
+};
+
+var initalizeDialog = function(dialogElem) {
+  dialogElem.dialog({
+    width: 700,
+    height: 500,
+    modal: true,
+    resizable: true,
+    autoOpen: false,
+    show: {
+      effect: "drop",
+      duration: 250
+    },
+    hide: {
+      effect: "explode",
+      duration: 500
+    }
+  });
+};
+
+
 
