@@ -58,7 +58,11 @@ var quotes = {
 // document ready (events for buttons)
 $(document).ready( function() {
   $( "#credits-dialog" ).dialog({
-      width: 560,
+      width: 700,
+      height: 500,
+      modal: true,
+      resizable: true,
+      dialogClass: '.dialog-styles',
       autoOpen: false,
       show: {
         effect: "drop",
@@ -70,12 +74,37 @@ $(document).ready( function() {
       }
     });
 
-  $(".source button").click( translateHandler );
+  $( "#yoda-dialog" ).dialog({
+      width: 700,
+      height: 500,
+      modal: true,
+      resizable: true,
+      autoOpen: false,
+      show: {
+        effect: "drop",
+        duration: 250
+      },
+      hide: {
+        effect: "explode",
+        duration: 500
+      }
+    });
+
+  $(".source .clear").click( clearHandler );
+  $(".source .translate").click( translateHandler );
   $("#movie-link").click( movieHandler );
   $("#idiom-link").click( idiomHandler );
   $("#rhyme-link").click( rhymeHandler );
   $("#credits-link").click( creditsHandler );
+  $("#yoda-link").click( yodaHandler );
 });
+
+// =================================
+// clear button click handler
+var clearHandler = function() {
+  $(".source textarea").val("");
+  $(".translations textarea").val("");
+};
 
 // =================================
 // translate button click handler
@@ -127,6 +156,13 @@ var getRandomInt = function(min, max) {
 var creditsHandler = function(e) {
   e.preventDefault();
   $("#credits-dialog").dialog("open");
+};
+
+// =================================
+// yoda link click handler
+var yodaHandler = function(e) {
+  e.preventDefault();
+  $("#yoda-dialog").dialog("open");
 };
 
 // =================================

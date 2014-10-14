@@ -71,7 +71,7 @@ a:hover {
 }
 
 .source p {
-  width: 310px;
+  width: 360px;
   margin: 10px auto;
   line-height: 24px;
 }
@@ -80,18 +80,21 @@ a:hover {
   padding-top: 20px;
 }
 
+.source .source-buttons {
+    margin: 5px auto 46px auto;
+}
+
 .source textarea {
   margin-top: 20px;
 }
 
 .source button {
-  display: block;
+  display: inline;
   border-radius: 7px;
   background-image: linear-gradient(rgb(255,244,165), #F0BB6D);
   -webkit-box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.45), 0 2px 2px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.45), 0 2px 2px rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.45), 0 2px 2px rgba(0, 0, 0, 0.25);
-  margin: 5px auto 40px auto;
   width: 330px;
   padding: 10px;
   cursor: pointer;
@@ -113,6 +116,14 @@ a:hover {
 
 .source button:hover {
   outline: none;
+}
+
+.source .clear {
+  width: 100px;
+}
+
+.source .translate {
+  width: 200px;
 }
 
 /*================================================*/
@@ -183,25 +194,63 @@ footer span:last-child {
 }
 
 /*===============================================*/
-/* Credits dialog */
-#credits-dialog {
+/* dialog */
+
+.dialogs {
   display: none;
   padding: 20px;
-}
-
-#credits-dialog .ui-dialog {
-  background-color: white;
+  background-color: rgb(255,235,210);
   border: 1px solid black;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
-#credits-dialog .ui-dialog-titlebar {
+.ui-dialog-titlebar {
   background-color: gray;
   color: white;
   border: 1px solid black;
   padding: 10px;
+  font-size: 20px;
 }
 
-#credits-dialog h1 {
+.ui-dialog-titlebar button {
+  float: right;
+  padding: 7px;
+  border-radius: 3px;
+  background-color: orange;
+  color: white;
+}
+
+.dialogs ul {
+  list-style: disc;
+  padding: 20px 40px;
+}
+
+.dialogs li {
+  padding-bottom: 20px;
+}
+
+.dialogs h1 {
   margin-bottom: 20px;
   font-weight: bold;
+  font-size: 30px;
+}
+
+.dialogs p {
+  line-height: 23px;
+}
+
+.dialogs span {
+  padding-right: 20px;
+}
+
+.dialogs dl {
+  margin-bottom: 50px;
+}
+
+.dialogs dl dt {
+  padding: 5px;
+}
+
+.dialogs dl dd {
+  padding: 20px;
 }
