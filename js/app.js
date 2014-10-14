@@ -8,6 +8,14 @@ var translators = [
 ];
 
 // =================================
+// Quotes
+var quotes = {
+  movies: ["movie1", "movie2"],
+  songs: ["song1", "song2", "song3"],
+  rhymes: ["rhyme1"]
+};
+
+// =================================
 // document ready (events for buttons)
 $(document).ready( function() {
   $( "#credits-dialog" ).dialog({
@@ -24,6 +32,9 @@ $(document).ready( function() {
     });
 
   $(".source button").click( translateHandler );
+  $("#movie-link").click( movieHandler );
+  $("#song-link").click( songHandler );
+  $("#rhyme-link").click( rhymeHandler );
   $("#credits-link").click( creditsHandler );
 });
 
@@ -39,12 +50,45 @@ var translateHandler = function() {
 };
 
 // =================================
+// translate button click handler
+var movieHandler = function(e) {
+  e.preventDefault();
+  setInspirationText(quotes["movies"]);
+};
+
+// =================================
+// translate button click handler
+var songHandler = function(e) {
+  e.preventDefault();
+  setInspirationText(quotes["songs"]);
+};
+
+// =================================
+// translate button click handler
+var rhymeHandler = function(e) {
+  e.preventDefault();
+  setInspirationText(quotes["rhymes"]);
+};
+
+// =================================
+// inspiration
+var setInspirationText = function(quotesArray) {
+  var index = getRandomInt(0,quotesArray.length-1);
+  var txt = quotesArray[index];
+  $(".source textarea").val(txt);
+  translateHandler();
+};
+
+var getRandomInt = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+// =================================
 // credits link click handler
 var creditsHandler = function(e) {
   e.preventDefault();
   $("#credits-dialog").dialog("open");
 };
-
 
 // =================================
 // Translator class
